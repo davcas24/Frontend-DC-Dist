@@ -1,7 +1,7 @@
 angular.module('AngularScaffold.Services').factory('navbarService', ['$http',
 	function($http){
 		$http.defaults.withCredentials = true;
-		var baseUrl = 'https://http://David:8000/';
+		var baseUrl = 'https://dist-dc.herokuapp.com/';
 		return {
 				Logout: function(){
 					return $http.get("logout");
