@@ -1,0 +1,31 @@
+<div ng-controller="loginController">
+  <div id='body_login'>
+
+   <div class='container' id='bootsta'>
+     <div class='row'>
+       <div class='col-xs-6 col-xs-offset-9'>
+       <a href="https://www.facebook.com/">
+         <img id='img_link'src='fb.png'/>
+       </a>
+       <a href="https://instagram.com/">
+         <img id='img_link'src='insta.jpg'/>
+       </a>
+       <a href="https://twitter.com/">
+         <img id='img_link'src='twitter.png'/>
+       </a>
+       </div>
+     </div>
+     <div class='row'>
+       <div class= 'col-xs-4 col-xs-offset-4  ' >
+         <div id='login'>
+            <h3>NOMBRE:</h3>
+             <input type="text" name="nombre" value="" ng-model = "user.nombre" />
+            <h3>CONTRASE&Ntilde;A:</h3>
+             <input type="password" name="password" value="" ng-model = "user.password"/><br> </br>
+             <button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" ng-click="login(user)" >ACEPTAR</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>

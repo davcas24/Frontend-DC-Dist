@@ -1,0 +1,75 @@
+<div ng-controller="comprasController">
+  <div id="body_facturacion">
+    <div class="container container-table">
+      <div id="divDARIOV" class="vertical-center-row-DARIOV">
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table table-bordered tablaDario">
+              <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Descripcion</th>
+                <th>Precio Unidad</th>
+                <th>Precio Venta</th>
+                <th>Cantidad</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-1 col-xs-2">
+            <button type="button" class="btn-group btn-group-sm">Seleccionar Todas</button>
+          </div>
+          <div class="col-xs-offset-1 col-xs-3">
+            <button type="button" class="btn-group btn-group-sm">Deseleccionar Todas</button>
+          </div>
+          <div class="col-xs-offset-3 col-xs-2">
+            <button type="button" class="btn-group btn-group-sm">Quitar</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table tablaDario">
+              <tr>
+                <td>ID de Cliente</td>
+                <td class="table-center"> <span id="TD_ID-CLIENTE">0000000000</span> </td>
+              </tr>
+              <tr>
+                <td>ID de Vendedor</td>
+                <td class="table-center"> <span id="TD_ID-VENDEDOR">0000</span> </td>
+              </tr>
+              <tr>
+                <td>Zona de Venta</td>
+                <td class="table-center"> <span id="TD_ZONA-Venta">AAAAAAAAAAAAA</span> </td>
+              </tr>
+              <tr>
+                <td>Subtotal</td>
+                <td class="table-center"> <span id="TD_SUB"></span>$</td>
+              </tr>
+              <tr>
+                <td>Impuesto</td>
+                <td class="table-center"> <span id="TD_IMP"></span>$</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td class="table-center"> <span id="TD_TOT"></span>$</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-5 col-xs-7">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success">Pagar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

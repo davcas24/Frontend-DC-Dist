@@ -1,0 +1,112 @@
+<div ng-controller="facturacionController">
+  <div id="body_facturacion"> 
+    <div class="container container-table">
+
+      <div id="divDARIOV" class="vertical-center-row-DARIOV">
+        <div class="row">
+          <div class="col-xs-12">
+            <!-- Boton Marcas -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Todas las marcas <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="">Otra Marca</a></li>
+                <li><a href="">Otra Marca</a></li>
+                <li><a href="">Otra Marca</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="">Otra Marca</a></li>
+              </ul>
+            </div>
+            <!-- Boton Marcas -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-8 col-xs-4">
+            <div id="buscador">
+              <div id="icon_search">
+                <p> <i class="glyphicon glyphicon-remove-circle" style="vertical-align:middle"></i> </p>
+              </div>
+              <div class="input-group" id="input_search" >
+                <input type="text" id="input_search_text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+              </div>
+              <div  id="button_search">
+                <button type="button" class="btn btn-default">Buscar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table table-bordered tablaDario">
+              <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-1 col-xs-3">
+            <button type="button" class="btn-group btn-group-sm">Deseleccionar Todas</button>
+          </div>
+          <div class="col-xs-offset-6 col-xs-2">
+            <p>Cantidad Total: <span id="NUM">0</span> </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table tablaDario">
+              <tr>
+                <td>Subtotal</td>
+                <td class="table-center"> <span id="TD_SUB">$</span> </td>
+              </tr>
+              <tr>
+                <td>Impuesto</td>
+                <td class="table-center"> <span id="TD_IMP">$</span> </td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td class="table-center"> <span id="TD_TOT">$</span> </td>
+              </tr>
+              <tr>
+                <td>Zona de Venta</td>
+                <td class="table-center"> 
+                  <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      Tegucigalpa
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="">Danli</a></li>
+                      <li><a href="">Olancho</a></li>
+                      <li><a href="">Norte</a></li>
+                      <li><a href="">Sur</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-5 col-xs-7">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success" ng-click="gocompras()">Facturar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="AngularScaffold">
+  <head>
+    <meta charset="utf-8">
+    <title update-title></title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endinject -->
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bootstrap-css/css/bootstrap.min.css">
+    <!-- endinject -->
+  </head>
+  <body>
+    <!-- Declaracion Barra -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container" ng-controller="indexController" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+              <a class="navbar-brand" href="">   <img alt="Brand" src=""></a>
+              <a class="navbar-brand" href="" id="BrandLogo">  <strong> {{ indexService.title() }} </strong>  </a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li> <a  href="" data-ng-hide="$state.includes('login')" ng-click="gofacturacion()" >Facturacion</a> </li>
+            <li> <a href="" data-ng-hide="$state.includes('login')"  ng-click="godevoluciones()">Devoluciones</a> </li>
+            <!--<li> <a href="" data-ng-hide="$state.includes('login')"  ng-click="()"></a> </li>-->
+            <li> <a href="" data-ng-hide="$state.includes('login')"  ng-click="goabonos()">Abonos</a> </li>
+            <!--<li> <a href="" data-ng-hide="$state.includes('login')"  ng-click="()"></a> </li>-->
+            <li> <a href="" data-ng-hide="$state.includes('login')"  ng-click="gograficas()">Graficas</a> </li>
+            <li> <a href="" data-ng-hide="$state.includes('login')" ng-click="logout()">Cerrar Sesion</a> </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Fin Declaracion Barra -->
+
+      <div ui-view></div>
+
+  </body>
+
+  <!-- bower:js -->
+  <script src="/jquery/dist/jquery.js"></script>
+  <script src="/angular/angular.js"></script>
+  <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bootstrap-css/js/bootstrap.min.js"></script>
+  <script src="/angular-cookies/angular-cookies.js"></script>
+  <script src="/ngstorage/ngStorage.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/angularLocalStorage/dist/angularLocalStorage.min.js"></script>
+  <!-- endinject -->
+  <script src = "/highcharts-ng/dist/highcharts-ng.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+  <script src = "/highcharts-ng/dist/highcharts.src.js"></script>
+  <script src = "/bootstrap/js/dropdown.js"></script>
+  <script src="app.js"></script>
+
+  <!-- inject:js -->
+  <script src="scripts/controllers/abonoController.js"></script>
+  <script src="scripts/controllers/adminController.js"></script>
+  <script src="scripts/controllers/chartsController.js"></script>
+  <script src="scripts/controllers/comprasController.js"></script>
+  <script src="scripts/controllers/devoController.js"></script>
+  <script src="scripts/controllers/facturacionController.js"></script>
+  <script src="scripts/controllers/HomeController.js"></script>
+  <script src="scripts/controllers/indexController.js"></script>
+  <script src="scripts/controllers/loginController.js"></script>
+  <script src="scripts/controllers/usuarioController.js"></script>
+  <script src="scripts/services/abonoService.js"></script>
+  <script src="scripts/services/adminService.js"></script>
+  <script src="scripts/services/authService.js"></script>
+  <script src="scripts/services/chartsService.js"></script>
+  <script src="scripts/services/comprasService.js"></script>
+  <script src="scripts/services/devoService.js"></script>
+  <script src="scripts/services/facturacionService.js"></script>
+  <script src="scripts/services/HomeService.js"></script>
+  <script src="scripts/services/indexService.js"></script>
+  <script src="scripts/services/loginService.js"></script>
+  <script src="scripts/services/navbarService.js"></script>
+  <script src="scripts/services/usuarioService.js"></script>
+  <!-- endinject -->
+</html>

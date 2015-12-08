@@ -1,0 +1,110 @@
+<div ng-controller="usuarioController">
+<div id='body_usuario'>
+
+  <div class='container' id='bootsta'>
+    <div class='row'>
+      <div id='create_user' class= 'col-xs-10 col-xs-offset-1 ' >
+        <form>
+              <h2>Informacion General</h2>
+              <div class="col-md-2">
+                Nombre:
+              </div>
+              <div class="col-md-4">
+                <input class='texto' type="text" name="nombre" value="" ng-model="user.user_name" />
+              </div>
+              <div class="col-md-2">
+                Contrase&ntildea:
+              </div>
+              <div class="col-md-4">
+                <input class='texto' type="text" name="password" value="" ng-model="user.user_password" /><br> <br>
+              </div>
+
+              <div class="col-md-2">
+                Direccion:
+              </div>
+              <div class="col-md-4">
+                <input class='texto' type="text" name="direccion" value="" ng-model="user.user_dire"/>
+              </div>
+              <div class="col-md-2">
+                  Telefono movil:
+              </div>
+              <div class="col-md-4">
+                  <input class='texto' type="text" name="telefono_personal" value="" ng-model="user.user_cel" /><br><br>
+              </div>
+
+
+              <br>Correo electronico:<input  class='texto'type="text" name="correo" value=""  ng-model="user.user_mail"/><br><br>
+
+              Selecione tipo de usuario en caso de usuario interno:
+                <input type="radio" name="user_1" value="Administrador" ng-model="user.user_user" checked>Administrador
+                <input type="radio" name="user_1" value="Vendedor" ng-model="user.user_user">Vendedor
+                <br><br>
+          </form>
+          <form>
+            <div class="col-md-2">
+              Telefono empresarial:
+            </div>
+            <div class="col-md-4">
+                <input  class='texto' type="text" name="telefono_empresa" value="" ng-model="user.user_fijo" />
+            </div>
+            <div class="col-md-2">
+              Zona:
+            </div>
+            <div class="col-md-4">
+              <select class='texto' ng-model="user.user_zona">
+                     <option value="Panama">Panama</option>
+                     <option value="Tegucigalpa">Tegucigalpa</option>
+                     <option value="Olancho">Olancho</option>
+                     <option value="Danli">Danli</option>
+                     <option value="Oriente">Oriente</option>
+                     <option value="Norte">Norte</option>
+                     <option value="Sur">Sur</option>
+                   </select> <br><br>
+            </div>
+
+
+              Selecione tipo de usuario en caso de usuario externo:
+              <input type="radio" name="user_2" value="Proveedor" ng-model="user.user_user">Proveedor
+              <input type="radio" name="user_2" value="Cliente" ng-model="user.user_user">Cliente
+            <br><br><button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" ng-click="Postusuario()">Crear Usuario </button> <br><br>
+         </form>
+      </div>
+    </div>
+
+     <div class='row'>
+
+            <div id='div_table' class= 'col-xs-10 col-xs-offset-1  '>
+              Seleccione Usuario:<select ng-model="user_show" class='texto'>
+                <option value="Usuarios">Usuarios</option>
+                <option value="Usuarios">Usuarios</option>
+              </select>
+             <button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" >Ver Usuario</button>
+              <table id="table" class="table table-striped" ng-model="user_table">
+                <tr>
+                  <th>
+                    Fecha
+                  </th>
+                  <th>
+                    Accion
+                  </th>
+                  <th>
+                    Cantidad
+                  </th>
+                </tr>
+                <tr >
+                  <td>
+
+                  </td>
+                  <td>
+
+                  </td>
+                  <td>
+
+                  </td>
+                </tr>
+              </table>
+            </div>
+     </div>
+ </div>
+</div>
+</div>

@@ -1,0 +1,314 @@
+#body_login{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url('carros/img2.jpg');
+}
+
+#login{
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  border: solid 13px;
+  margin-top: 180px;
+  height: 250px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+#aceptar{
+  width: 120px;
+  height: 25px;
+}
+
+h3{
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+}
+
+#img_link{
+  width: 40px;
+  height: 35px;
+}
+
+#body_admin{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url('carros/img1.jpg');
+}
+
+#Facturas, #Devoluciones, #Usuarios, #Abonos, #Compras, #Dei{
+  border: solid 5px;
+  height: 250px;
+  background-color: #ffffff;
+  text-align: center;
+  filter: brightness(50%);
+  //background-color: black;
+  background-color: rgba(255,255,255,0.6);
+}
+
+#user_bt{
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+html, body, .container-table {
+    height: 100%;
+}
+
+.container-table {
+    display: table;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#user_bt{
+  margin-top: 5px;
+  width: 100%;
+  height: 95%;
+  font-weight: bolder;
+  font-size: 140%;
+  text-align: center;
+  color:black;
+}
+
+
+#body_abono{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url('carros/img6.jpg');
+}
+
+
+#abono{
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  margin: 150px;
+  font-weight: bolder;
+  background-color: black;
+  color: white;
+}
+#letra{
+  color:black;
+}
+
+#create_user{
+  margin: 150px;
+}
+
+//DAVID
+
+#devobutt{
+  width: 130px;
+  height: 40px;
+  text-align: center;
+}
+
+#filtersbox{
+  height: 100px;
+  margin-left: 10%;
+  margin-bottom: 5px;
+  width: 1100px;
+}
+
+#drop1{
+  margin-top: 30px;
+  margin-left: 30px;
+  position: relative;
+}
+
+#drop2{
+  margin-top: 30px;
+  margin-left: 30px;
+  position: relative;
+}
+
+#Visbutt{
+  width: 600px;
+}
+
+#mainbutt{
+  margin-left: 8%;
+  margin-bottom: 1%;
+}
+
+#visuabutcont{
+  margin-top: 30px;
+  margin-left: 19%;
+  position: relative;
+}
+
+#zonabutt{
+  width: 300px;
+}
+
+#mesbutt{
+  width: 300px;
+}
+
+#divchart{
+  margin-left: 7%;
+  margin-top: 1%;
+  margin-bottom: 30px;
+  width: 80%;
+  height: 50%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+#divchart3{
+  margin-left: 7%;
+  margin-top: 10px;
+  width: 80%;
+  height: 18%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+#chart1{
+  position: relative;
+  margin: 7%;
+  height: 100%;
+  width: 95%;
+}
+
+#chart2{
+  position: relative;
+  margin: 7%;
+  height: 100%;
+  width: 95%;
+}
+
+#chart3{
+  position: relative;
+  margin: 7%;
+  height: 100%;
+  width: 95%;
+}
+
+#chart4{
+  position: relative;
+  margin: 7%;
+  height: 100%;
+  width: 95%;
+}
+
+#chartsmaindiv{
+  background-image: url('Images/bdimg4.jpg');
+  margin-top: 5%;
+  width: 100%;
+  height: 110%;
+}
+
+#devomaindiv{
+position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url('Images/bdimg3.jpg');
+}
+
+.white{
+  color: white;
+  font-weight: bolder;
+}
+
+#devocontainer{
+  background-color: rgba(0,0,0,0.6);
+  text-align: center;
+  margin: 150px;
+}
+
+#text_bar_prod{
+  width: 200px;
+}
+
+#text_bar_fac{
+  margin-left: 5px;
+  width: 220px;
+}
+
+#text_bar_cant{
+  margin-left: 15px;
+  width: 230px;
+}
+
+#divDARIOV{
+  background-color: rgba(0,0,0,0.50);
+  padding: 1%;
+  margin-top: 10%;
+}
+
+#body_facturacion{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url('carros/img1.jpg');
+}
+
+.vertical-center-row-DARIOV {
+  vertical-align: middle;
+  top: 40%;
+}
+
+.center-block{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#button_search{
+  float: left;
+  display: inline-block;
+  padding: 2px;
+}
+
+#input_search{
+  float: left;
+  display: inline-block;
+  padding: 2px;
+}
+
+#icon_search{
+  float: left;
+  display: inline-block;
+  line-height: 30px;
+  padding: 2px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.table-center{
+  text-align: right;
+}
+
+.tablaDario{
+    border: 1px solid white;
+    background: rgba(255,255,255,0.6);
+}
+
+#body_compras{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+#input_search_text{
+  -webkit-border-radius: 30px !important;
+  -moz-border-radius: 30px !important;
+  border-radius: 30px !important;
+  -webkit-border-top: 30px !important;
+    -moz-border-top: 30px !important;
+    border-top: 30px !important;
+    -webkit-border-bottom: 30px !important;
+    -moz-border-bottom: 30px !important;
+    border-bottom: 30px !important;
+}
+
+.row{
+  margin: 10px;
+}
