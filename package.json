@@ -16,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node server",
-    "Postinstall": "Bower install && gulp -index",
+    "Postinstall": "bower install && gulp index",
     "test": "test"
   },
   "repository": {
