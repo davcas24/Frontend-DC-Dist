@@ -4,10 +4,10 @@ angular.module('AngularScaffold.Services').factory('chartsService', ['$http',
 		var baseUrl = 'https://dist-dc.herokuapp.com/';
 		return {
 				GetStudents: function(){
-					return $http.get("/students");
+					return $http.get(baseUrl + "/students");
 				},
 				PostStudents: function(payload){
-					return $http.post("/students", payload);
+					return $http.post(baseUrl + "/students", payload);
 				}
 	    };
 }]);

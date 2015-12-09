@@ -4,11 +4,11 @@ angular.module('AngularScaffold.Services').factory('AuthService', ['$http',
 		var baseUrl = 'https://dist-dc.herokuapp.com/';
 		return {
 				Logout: function(){
-					return $http.get("/logout");
+					return $http.get(baseUrl + "/logout");
 				},
 				Login: function(payload){
 					//console.log("aqui");
-					return $http.post("login", payload);
+					return $http.post(baseUrl + "login", payload);
 				}
 	    };
 }]);

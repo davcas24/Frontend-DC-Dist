@@ -4,10 +4,10 @@ angular.module('AngularScaffold.Services').factory('navbarService', ['$http',
 		var baseUrl = 'https://dist-dc.herokuapp.com/';
 		return {
 				Logout: function(){
-					return $http.get("logout");
+					return $http.get(baseUrl + "logout");
 				},
 				Login: function(payload){
-					return $http.post("login", payload);
+					return $http.post(baseUrl + "login", payload);
 				}
 	    };
 }]);

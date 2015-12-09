@@ -4,10 +4,10 @@ angular.module('AngularScaffold.Services').factory('devoService', ['$http',
 		var baseUrl = 'https://dist-dc.herokuapp.com/';
 		return {
 				GetUsuario: function(){
-					return $http.get("/usuarios");
+					return $http.get(baseUrl + "/usuarios");
 				},
 				PostStudents: function(payload){
-					return $http.post("/students", payload);
+					return $http.post(baseUrl + "/students", payload);
 				}
 	    };
 }]);
