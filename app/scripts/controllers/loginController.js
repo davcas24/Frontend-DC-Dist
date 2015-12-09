@@ -10,7 +10,7 @@ angular.module('AngularScaffold.Controllers')
       $scope.boollog = false;
 
       $scope.login = function(user){
-          authService.Login(user).then(function(response){
+          /*authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
           console.log($sessionStorage.currentUser.nombre);
@@ -19,14 +19,14 @@ angular.module('AngularScaffold.Controllers')
             console.log("empty");
             $scope.boollog = true;
           }
-          if($scope.boollog == false){
+          if($scope.boollog == false){*/
               $state.go('admin');
-          }else{
+          /*}else{
             alert("Error");
           }
         }).catch(function(err){
           console.log((err.data.error + " " + err.data.message));
-        });
+        });*/
       }
 
   }]);
