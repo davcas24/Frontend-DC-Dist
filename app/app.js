@@ -77,6 +77,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$routeProvider', function($
             templateUrl: '/index.html',
             controller: 'indexController'
         })
+        .state('proveedor', {
+            url: '/compra-proveedor',
+            templateUrl: '/views/proveedor.html',
+            controller: 'proveedorController',
+            data: {
+              pageTitle: 'Distribuidora DC - Compra a Proveedores'
+            }
+        })
 
         $routeProvider
             .when('/compras', {template: 'views/compras.html', controller: 'comprasController'})
