@@ -19,7 +19,7 @@ angular.module('AngularScaffold.Controllers')
             console.log("empty");
             $scope.boollog = true;
           }
-          if($scope.boollog == false){*/
+          if($scope.boollog == false){
               $state.go('admin');
           }else{
             alert("Error");
