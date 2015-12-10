@@ -271,6 +271,14 @@ position: fixed;
   background-image: url('carros/img1.jpg');
 }
 
+.background-usuario{
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url('carros/img3.jpg');
+}
+
 .background-compras{
   height: 100%;
   width: 100%;
