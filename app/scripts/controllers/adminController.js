@@ -38,5 +38,13 @@ angular.module('AngularScaffold.Controllers')
       }
     }
 
+    $scope.gotoproveedor = function(){
+      if($sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('Administrador') > -1){
+          $state.go('proveedor');
+      }else{
+        alert('No tiene los permisos necesarios');
+      }
+    }
+
     indexService.setTitle("Bienvenido!");
   }]);
