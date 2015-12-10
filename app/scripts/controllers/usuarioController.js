@@ -56,5 +56,16 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
+      //Para El Fondo
+      $scope.viewBackground = "background-usuario";
 
+      function setHeight() {
+        windowHeight = $(window).innerHeight();
+        $('#body_facturacion').css('min-height', windowHeight);
+      };
+      setHeight();  
+
+      $(window).resize(function() {
+        setHeight();
+      });
   }]);
