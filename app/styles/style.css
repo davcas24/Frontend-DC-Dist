@@ -312,3 +312,29 @@ position: fixed;
 .row{
   margin: 10px;
 }
+
+
+#body_usuario{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url('carros/img3.jpg');
+}
+
+#table{
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #ffffff;
+}
+#create_users{
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  background-color: black;
+  color:white;
+}
+.texto{
+  color:black;
+}

@@ -3,41 +3,41 @@
 
   <div class='container' id='bootsta'>
     <div class='row'>
-      <div id='create_user' class= 'col-xs-10 col-xs-offset-1 ' >
+      <div id='create_users' class= 'col-xs-10 col-xs-offset-1 ' >
         <form>
               <h2>Informacion General</h2>
               <div class="col-md-2">
                 Nombre:
               </div>
               <div class="col-md-4">
-                <input class='texto' type="text" name="nombre" value="" ng-model="user.user_name" />
+                <input class='texto' type="text" name="nombre" value="" ng-model="user.nombre" />
               </div>
               <div class="col-md-2">
                 Contrase&ntildea:
               </div>
               <div class="col-md-4">
-                <input class='texto' type="text" name="password" value="" ng-model="user.user_password" /><br> <br>
+                <input class='texto' type="text" name="password" value="" ng-model="user.password" /><br> <br>
               </div>
 
               <div class="col-md-2">
                 Direccion:
               </div>
               <div class="col-md-4">
-                <input class='texto' type="text" name="direccion" value="" ng-model="user.user_dire"/>
+                <input class='texto' type="text" name="direccion" value="" ng-model="user.direccion"/>
               </div>
               <div class="col-md-2">
                   Telefono movil:
               </div>
               <div class="col-md-4">
-                  <input class='texto' type="text" name="telefono_personal" value="" ng-model="user.user_cel" /><br><br>
+                  <input class='texto' type="text" name="telefono_personal" value="" ng-model="user.celular" /><br><br>
               </div>
 
 
-              <br>Correo electronico:<input  class='texto'type="text" name="correo" value=""  ng-model="user.user_mail"/><br><br>
+              <br>Correo electronico:<input  class='texto'type="text" name="correo" value=""   ng-model="user.correo"/><br><br>
 
               Selecione tipo de usuario en caso de usuario interno:
-                <input type="radio" name="user_1" value="Administrador" ng-model="user.user_user" checked>Administrador
-                <input type="radio" name="user_1" value="Vendedor" ng-model="user.user_user">Vendedor
+                <input type="radio" name="user_1" value="Administrador" ng-model="user.scope" checked>Administrador
+                <input type="radio" name="user_1" value="Vendedor" ng-model="user.scope">Vendedor
                 <br><br>
           </form>
           <form>
@@ -45,13 +45,13 @@
               Telefono empresarial:
             </div>
             <div class="col-md-4">
-                <input  class='texto' type="text" name="telefono_empresa" value="" ng-model="user.user_fijo" />
+                <input  class='texto' type="text" name="telefono_empresa" value="" ng-model="user.tel_fijo" />
             </div>
             <div class="col-md-2">
               Zona:
             </div>
             <div class="col-md-4">
-              <select class='texto' ng-model="user.user_zona">
+              <select class='texto' ng-model="user.zona">
                      <option value="Panama">Panama</option>
                      <option value="Tegucigalpa">Tegucigalpa</option>
                      <option value="Olancho">Olancho</option>
@@ -64,21 +64,19 @@
 
 
               Selecione tipo de usuario en caso de usuario externo:
-              <input type="radio" name="user_2" value="Proveedor" ng-model="user.user_user">Proveedor
-              <input type="radio" name="user_2" value="Cliente" ng-model="user.user_user">Cliente
+              <input type="radio" name="user_2" value="Proveedor" ng-model="user.scope">Proveedor
+              <input type="radio" name="user_2" value="Cliente" ng-model="user.scope">Cliente
             <br><br><button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" ng-click="Postusuario()">Crear Usuario </button> <br><br>
+            <select  class='texto' id="select_user" ng-change="change()" ng-model="user2">
+              <option value="">Seleccione usuario </option>
+             <option value="{{user2.nombre}}" ng-repeat="user2 in users" > {{user2.nombre}}</option>
+           </select>
          </form>
       </div>
     </div>
 
      <div class='row'>
-
             <div id='div_table' class= 'col-xs-10 col-xs-offset-1  '>
-              Seleccione Usuario:<select ng-model="user_show" class='texto'>
-                <option value="Usuarios">Usuarios</option>
-                <option value="Usuarios">Usuarios</option>
-              </select>
-             <button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" >Ver Usuario</button>
               <table id="table" class="table table-striped" ng-model="user_table">
                 <tr>
                   <th>
