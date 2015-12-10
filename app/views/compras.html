@@ -1,32 +1,44 @@
-<div ng-controller="comprasController">
-  <div id="body_facturacion">
-    <div class="container container-table">
+<div ng-controller="comprasController" id="body_todo">
+  <div id="body_facturacion" ng-class="viewBackground">
+    <div class="container container-table" ng-init="loadInventario();loadFactura()">
       <div id="divDARIOV" class="vertical-center-row-DARIOV">
         
         <div class="row">
           <div class="col-xs-12">
-            <table class="table table-bordered tablaDario">
-              <tr>
-                <th></th>
-                <th>ID</th>
-                <th>Descripcion</th>
-                <th>Precio Unidad</th>
-                <th>Precio Venta</th>
-                <th>Cantidad</th>
-              </tr>
+            <table class="table table-bordered tablaDario" id="CompraTabla">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>ID</th>
+                  <th>Descripcion</th>
+                  <th>Cantidad</th>
+                  <th>Precio Unidad</th>
+                  <th>Precio Venta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="producto in inventarioArreglo | orderBy:sortType:sortReverse | filter:search">
+                  <td class="TableCenter"> <input type="checkbox" aria-label="..." ng-click="actualizarFactura()" id="check" name="check1"> </td>
+                  <td class="TableCenter">{{producto.ID}}</td>
+                  <td class="TableCenter">{{producto.Descripcion}}</td>
+                  <td class="TableCenter"><input id="cantidad" type="number" name="cant" class="form-control" placeholder="1" min="1"max={{producto.Cantidad}} required ng-keyup="actualizarFactura()"></td>
+                  <td class="TableCenter price" name="price1">L. <span>{{producto.Precio}}</span></td>
+                  <td class="TableCenter">L. <span>{{producto.Precio * producto.Cantidad}}</span></td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
 
         <div class="row">
           <div class="col-xs-offset-1 col-xs-2">
-            <button type="button" class="btn-group btn-group-sm">Seleccionar Todas</button>
+            <button type="button" class="btn-group btn-group-sm" ng-click="seleccionarTodas()">Seleccionar Todas</button>
           </div>
           <div class="col-xs-offset-1 col-xs-3">
-            <button type="button" class="btn-group btn-group-sm">Deseleccionar Todas</button>
+            <button type="button" class="btn-group btn-group-sm" ng-click="deseleccionarTodas()">Deseleccionar Todas</button>
           </div>
-          <div class="col-xs-offset-3 col-xs-2">
-            <button type="button" class="btn-group btn-group-sm">Quitar</button>
+          <div class="col-xs-offset-2 col-xs-3">
+            <button type="button" class="btn-group btn-group-sm" ng-click="quitar()">Quitar</button>
           </div>
         </div>
 
@@ -35,27 +47,27 @@
             <table class="table tablaDario">
               <tr>
                 <td>ID de Cliente</td>
-                <td class="table-center"> <span id="TD_ID-CLIENTE">0000000000</span> </td>
+                <td class="table-center"> <span id="TD_ID-CLIENTE" ng-model="factura.factura_nombre_Cliente">{{id_Cliente}}</span> </td>
               </tr>
               <tr>
                 <td>ID de Vendedor</td>
-                <td class="table-center"> <span id="TD_ID-VENDEDOR">0000</span> </td>
+                <td class="table-center"> <span id="TD_ID-VENDEDOR" ng-model="factura.factura_ID_Vendedor">{{id_Vendedor}}</span> </td>
               </tr>
               <tr>
                 <td>Zona de Venta</td>
-                <td class="table-center"> <span id="TD_ZONA-Venta">AAAAAAAAAAAAA</span> </td>
+                <td class="table-center"> <span id="TD_ZONA-Venta" ng-model="factura.factura_zona">{{zona_Venta}}</span> </td>
               </tr>
               <tr>
                 <td>Subtotal</td>
-                <td class="table-center"> <span id="TD_SUB"></span>$</td>
+                <td class="table-center">L. <span id="TD_SUB"></span></td>
               </tr>
               <tr>
                 <td>Impuesto</td>
-                <td class="table-center"> <span id="TD_IMP"></span>$</td>
+                <td class="table-center">L. <span id="TD_IMP"></span></td>
               </tr>
               <tr>
                 <td>Total</td>
-                <td class="table-center"> <span id="TD_TOT"></span>$</td>
+                <td class="table-center">L. <span id="TD_TOT" ng-model="factura.factura_total"></span></td>
               </tr>
             </table>
           </div>
@@ -64,7 +76,7 @@
         <div class="row">
           <div class="col-xs-offset-5 col-xs-7">
             <div class="btn-group">
-              <button type="button" class="btn btn-success">Pagar</button>
+              <button type="button" class="btn btn-success" ng-click="addFactura()">Pagar</button>
             </div>
           </div>
         </div>
