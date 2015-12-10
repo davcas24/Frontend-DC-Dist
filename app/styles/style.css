@@ -383,6 +383,10 @@ position: fixed;
   color: white;
 }
 
+.letraCanTot{
+  color: white;
+}
+
 @media screen and (max-width: 768px){
   #divDARIOV{
     background-color: rgba(0,0,0,0.50);

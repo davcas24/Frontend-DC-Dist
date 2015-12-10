@@ -2,31 +2,31 @@
 <div id="body_facturacion" ng-class="viewBackground">
 
   <div class="container container-table" id='bootsta'>
-    <div class='row'>
+    <div class='row' id="divDARIOV">
       <div id='create_users' class= 'col-xs-10 col-xs-offset-1 ' >
         <form>
-              <h2>Informacion General</h2>
+              <h2><p class="letraCanTot">Informacion General</p></h2>
               <div class="col-md-2">
-                Nombre:
+                <p class="letraCanTot">Nombre:</p>
               </div>
               <div class="col-md-4">
                 <input class='texto' type="text" name="nombre" value="" ng-model="user.nombre" />
               </div>
               <div class="col-md-2">
-                Contrase&ntildea:
+                <p class="letraCanTot">Contrase&ntildea:</p>
               </div>
               <div class="col-md-4">
                 <input class='texto' type="text" name="password" value="" ng-model="user.password" /><br> <br>
               </div>
 
               <div class="col-md-2">
-                Direccion:
+                <p class="letraCanTot">Direccion:</p>
               </div>
               <div class="col-md-4">
                 <input class='texto' type="text" name="direccion" value="" ng-model="user.direccion"/>
               </div>
               <div class="col-md-2">
-                  Telefono movil:
+                  <p class="letraCanTot">Telefono movil:</p>
               </div>
               <div class="col-md-4">
                   <input class='texto' type="text" name="telefono_personal" value="" ng-model="user.celular" /><br><br>
@@ -35,20 +35,20 @@
 
               <br>Correo electronico:<input  class='texto'type="text" name="correo" value=""   ng-model="user.correo"/><br><br>
 
-              Selecione tipo de usuario en caso de usuario interno:
+              <p class="letraCanTot">Selecione tipo de usuario en caso de usuario interno:</p>
                 <input type="radio" name="user_1" value="Administrador" ng-model="user.scope" checked>Administrador
                 <input type="radio" name="user_1" value="Vendedor" ng-model="user.scope">Vendedor
                 <br><br>
           </form>
           <form>
             <div class="col-md-2">
-              Telefono empresarial:
+              <p class="letraCanTot">Telefono empresarial:</p>
             </div>
             <div class="col-md-4">
                 <input  class='texto' type="text" name="telefono_empresa" value="" ng-model="user.tel_fijo" />
             </div>
             <div class="col-md-2">
-              Zona:
+              <p class="letraCanTot">Zona:</p>
             </div>
             <div class="col-md-4">
               <select class='texto' ng-model="user.zona">
@@ -63,10 +63,10 @@
             </div>
 
 
-              Selecione tipo de usuario en caso de usuario externo:
+              <p class="letraCanTot">Selecione tipo de usuario en caso de usuario externo:</p>
               <input type="radio" name="user_2" value="Proveedor" ng-model="user.scope">Proveedor
               <input type="radio" name="user_2" value="Cliente" ng-model="user.scope">Cliente
-            <br><br><button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" ng-click="Postusuario()">Crear Usuario </button> <br><br>
+            <br><br><button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" ng-click="Postusuario()"><p class="letraCanTot">Crear Usuario</p> </button> <br><br>
             <select  class='texto' id="select_user" ng-change="change()" ng-model="user2">
               <option value="">Seleccione usuario </option>
              <option value="{{user2.nombre}}" ng-repeat="user2 in users" > {{user2.nombre}}</option>

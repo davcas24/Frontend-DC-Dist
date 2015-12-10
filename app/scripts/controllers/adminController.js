@@ -3,11 +3,11 @@ angular.module('AngularScaffold.Controllers')
    function (AuthService,$state,$scope, adminService, indexService, $rootScope, $sessionStorage) {
 
     $scope.gousuario = function(){
-      //if($sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('Administrador') > -1){
+      if($sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('Administrador') > -1){
           $state.go('usuario');
-      //}else{
+      }else{
         alert('No tiene los permisos necesarios');
-      //}
+      }
     }
 
     $scope.goabono = function(){
