@@ -8,7 +8,7 @@ angular.module('AngularScaffold.Controllers')
   		windowHeight = $(window).innerHeight();
   		$('#body_facturacion').css('min-height', windowHeight);
   	};
-  	setHeight();  
+  	setHeight();
 
   	$(window).resize(function() {
   		setHeight();
@@ -182,12 +182,12 @@ angular.module('AngularScaffold.Controllers')
 	$scope.loadFactura =  function(){
 		comprasService.GetFactura($scope.facturasArreglo).then(function(response){
 			$scope.facturasArreglo = response.data;
-			if($scope.facturasArreglo.length == 0)
+      if($scope.facturasArreglo.length == 0)
 	          $scope.factura_ID = 1;
 	        else
 	          $scope.factura_ID = parseInt($scope.facturasArreglo[$scope.facturasArreglo.length - 1].ID) + 1;
 		}).catch(function(err){
 			alert("No se pudo leer el inventario");
 		});
-	}
+  }
   }]);
