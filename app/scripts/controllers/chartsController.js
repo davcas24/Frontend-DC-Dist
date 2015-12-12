@@ -4,135 +4,159 @@ angular.module('AngularScaffold.Controllers')
   .controller('chartsController', ['$state','$scope', 'chartsService', 'indexService', function ($state,$scope, chartsService, indexService) {
     indexService.setTitle("Graficos");
 
-    $("#dropZonas li a").click(function(){
-      $("#zonabutt:first-child").text($(this).text());
-      $("#zonabutt:first-child").val($(this).text());
-    });
+  //$scope.factData = [];
 
-    $("#dropMes li a").click(function(){
-      $("#mesbutt:first-child").text($(this).text());
-      $("#mesbutt:first-child").val($(this).text());
-    });
+  $scope.facturasArreglo = [];
+  var myseries3 = [];
+	$scope.loadFactura =  function(){
+		chartsService.GetFactura($scope.facturasArreglo).then(function(response){
+			$scope.facturasArreglo = response.data;
+      
+      /*for (var i = 0; i < $scope.facturasArreglo.length; i++) {
+        console.log($scope.facturasArreglo[i]);
+      }*/
+      var currentDate = new Date();
 
-    var factData = [{Total: 750, Dia: 01},{Total: 921, Dia: 02},{Total: 50, Dia: 03},{Total: 310, Dia: 04},{Total: 230, Dia: 05},{Total: 1050, Dia: 06},{Total: 0, Dia: 07},{Total: 750, Dia: 09},{Total: 2050, Dia: 10}];
-    var myseries = [];
-    for(var i = 0; i < factData.length; i++){
-      myseries.push([factData[i].Dia,factData[i].Total]);
-    }
-    $(function () {
-      $('#chart1').highcharts({
-        chart: {
-           type: 'line'
-       },
-       title: {
-           text: 'Ventas por Dia'
-       },
-       xAxis: {
+      for (var k= 1; k < 13 ;k++) {
+        var total_mensual = 0;
+        for(var i = 0; i < $scope.facturasArreglo.length; i++){
+            if(parseInt($scope.facturasArreglo[i].Anio) == parseInt(currentDate.getFullYear()) && parseInt($scope.facturasArreglo[i].Mes) == k){
+                total_mensual+=parseInt($scope.facturasArreglo[i].total);
+            }
+        }
+        myseries3.push([k,total_mensual]);
+      }
+      $(function () {
+        $('#chart3').highcharts({
+          chart: {
+             type: 'bar'
+         },
          title: {
-           text: "Dias"
-         }
-       },
-       yAxis: {
+             text: 'Ventas por Mes en ' + currentDate.getFullYear() + ' (Global)'
+         },
+         xAxis: {
            title: {
-               text: 'Cantidad (Lps.)'
+             text: "Dias"
            }
-       },
-       series: [{
-          name: 'Ventas',
-          data: myseries
-       }]
+         },
+         yAxis: {
+             title: {
+                 text: 'Cantidad (Lps.)'
+             }
+         },
+         series: [{
+            name: 'Ventas',
+            data: myseries3
+         }]
+        });
       });
-    });
-    var factData2 = [{Total: 754, Dia: 01},{Total: 121, Dia: 02},{Total: 450, Dia: 03},{Total: 210, Dia: 04},{Total: 2130, Dia: 05},{Total: 1050, Dia: 06},{Total: 0, Dia: 07},{Total: 750, Dia: 09},{Total: 2050, Dia: 10}];
-    var myseries2 = [];
-    for(var i = 0; i < factData.length; i++){
-      myseries2.push([factData2[i].Dia,factData2[i].Total]);
-    }
-    $(function () {
-      $('#chart2').highcharts({
-        chart: {
-           type: 'line'
-       },
-       title: {
-           text: 'Ventas por Mes'
-       },
-       xAxis: {
-         title: {
-           text: "Mes"
-         }
-       },
-       yAxis: {
-           title: {
-               text: 'Cantidad (Lps.)'
-           }
-       },
-       series: [{
-          name: 'Ventas',
-          data: myseries2
-       }]
-      });
-    });
+    }).catch(function(err){
+			alert("Error, no hay facturas disponibles");
+		});
 
-    var factData3 = [{Total: 750, Dia: 01},{Total: 921, Dia: 02},{Total: 50, Dia: 03},{Total: 310, Dia: 04},{Total: 230, Dia: 05},{Total: 1050, Dia: 06},{Total: 0, Dia: 07},{Total: 750, Dia: 09},{Total: 2050, Dia: 10}];
-    var myseries3 = [];
-    for(var i = 0; i < factData3.length; i++){
-      myseries3.push([factData3[i].Dia,factData3[i].Total]);
-    }
-    $(function () {
-      $('#chart3').highcharts({
-        chart: {
-           type: 'line'
-       },
-       title: {
-           text: 'Ventas por Dia'
-       },
-       xAxis: {
-         title: {
-           text: "Dias"
-         }
-       },
-       yAxis: {
-           title: {
-               text: 'Cantidad (Lps.)'
-           }
-       },
-       series: [{
-          name: 'Ventas',
-          data: myseries3
-       }]
-      });
-    });
+	}
 
-    var factData4 = [{Total: 750, Dia: 01},{Total: 921, Dia: 02},{Total: 50, Dia: 03},{Total: 310, Dia: 04},{Total: 230, Dia: 05},{Total: 1050, Dia: 06},{Total: 0, Dia: 07},{Total: 750, Dia: 09},{Total: 2050, Dia: 10}];
-    var myseries4 = [];
-    for(var i = 0; i < factData4.length; i++){
-      myseries4.push([factData4[i].Dia,factData4[i].Total]);
-    }
-    $(function () {
-      $('#chart4').highcharts({
-        chart: {
-           type: 'line'
-       },
-       title: {
-           text: 'Ventas por Dia'
-       },
-       xAxis: {
-         title: {
-           text: "Dias"
-         }
-       },
-       yAxis: {
-           title: {
-               text: 'Cantidad (Lps.)'
-           }
-       },
-       series: [{
-          name: 'Ventas',
-          data: myseries3
-       }]
-      });
-    });
+  window.onload = $scope.loadFactura();
 
+  var stringzona = "";
+
+  $("#dropZonas li a").click(function(){
+    stringzona = ($(this).text());
+    $("#zonabutt:first-child").text($(this).text());
+    $("#zonabutt:first-child").val($(this).text());
+    console.log(stringzona);
+  });
+
+  $scope.visualizar = function(){
+    for (var i = 0; i < $scope.facturasArreglo.length; i++) {
+      console.log($scope.facturasArreglo[i]);
+    }
+    var dateinit = document.getElementById("datedav1");
+    var datefin = document.getElementById("datedav");
+    var dateinitVal = new Date(dateinit.value);
+    var datefinVal = new Date(datefin.value);
+    if(dateinitVal > datefinVal || dateinit.value === datefin.value || datefin.value == "" || dateinit.value == ""){
+      alert("Error, fechas mal ingresadas");
+    }else{
+      //alert("exito");
+      var myseries = [];
+      console.log($scope.facturasArreglo.length);
+      for (var k = 1; k < 32; k++) {
+        var promedioday = 0;
+        for(var i = 0; i < $scope.facturasArreglo.length; i++){
+          var datefromdb = new Date($scope.facturasArreglo[i].Anio + "-" + $scope.facturasArreglo[i].Mes + "-" + $scope.facturasArreglo[i].Dia);
+          if(datefromdb >= dateinitVal && datefromdb <= datefinVal && stringzona === $scope.facturasArreglo[i].zona && parseInt($scope.facturasArreglo[i].Dia) == k){
+            promedioday+=parseInt($scope.facturasArreglo[i].total);
+          }
+        }
+        myseries.push([k,promedioday]);
+      }
+
+      $(function () {
+        $('#chart1').highcharts({
+          chart: {
+             type: 'bar'
+         },
+         title: {
+             text: 'Ventas por Dia en ' + stringzona
+         },
+         xAxis: {
+           title: {
+             text: "Dias"
+           }
+         },
+         yAxis: {
+             title: {
+                 text: 'Cantidad (Lps.)'
+             }
+         },
+         series: [{
+            name: 'Ventas',
+            data: myseries
+         }]
+        });
+      });//end chart1
+
+      var myseries2 = [];
+      for(var i = 1; i < 13; i++){
+        var promedio = 0;
+        for (var j = 0; j < $scope.facturasArreglo.length; j++) {
+          if(parseInt($scope.facturasArreglo[j].Mes) == i && parseInt($scope.facturasArreglo[j].Anio) == parseInt(dateinitVal.getFullYear()) && stringzona === $scope.facturasArreglo[j].zona){
+            promedio+=parseInt($scope.facturasArreglo[j].total);
+            console.log("promedio " + i + "---" +promedio + $scope.facturasArreglo[j].total);
+          }
+        }
+        myseries2.push([i,promedio]);
+      }
+      for (var i = 0; i < myseries2.length; i++) {
+        console.log(i+" "+myseries2[i]);
+      }
+      $(function () {
+        $('#chart2').highcharts({
+          chart: {
+             type: 'bar'
+         },
+         title: {
+             text: 'Ventas por Mes en ' + stringzona + ' en ' + dateinitVal.getFullYear()
+         },
+         xAxis: {
+           title: {
+             text: "Mes"
+           }
+         },
+         yAxis: {
+             title: {
+                 text: 'Cantidad (Lps.)'
+             }
+         },
+         series: [{
+            name: 'Ventas',
+            data: myseries2
+         }]
+        });
+      });
+    }//else
+  }//end funcrion
 
 
   }]);

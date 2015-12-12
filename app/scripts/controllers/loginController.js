@@ -21,10 +21,9 @@ angular.module('AngularScaffold.Controllers')
           }
           if($scope.boollog == false){
               $state.go('admin');
-          }else{
-            alert("Error");
           }
         }).catch(function(err){
+          alert("Error, ingrese los datos correctos");
           console.log((err.data.error + " " + err.data.message));
         });
       }
