@@ -10,6 +10,9 @@ angular.module('AngularScaffold.Services').factory('usuarioService', ['$http',
 				Postusuario: function(payload){
 					return $http.post(baseUrl + "usuario", payload);
 
-				}
+				},
+				Putusuarios: function(payload){
+				return $http.put(baseUrl + "usuario_put", payload);
+			}
 	    };
 }]);

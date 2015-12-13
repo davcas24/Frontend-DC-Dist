@@ -11,15 +11,16 @@
                     Nombre del Cliente:
                   </div>
                   <div class="col-xs-12 col-md-3">
-                    <select>
-                           <option id='letra' value="Clientes">Clientes</option>
-                     </select>
+                    <select id="letra"  ng-model="user2">
+                      <option value=""> Cliente </option>
+                     <option value="{{user2.nombre}}" ng-repeat="user2 in users2" > {{user2.nombre}}</option>
+                   </select>
                   </div>
                   <div class="col-xs-12 col-md-1">
                     fecha:
                   </div>
                   <div class="col-xs-12 col-md-5">
-                    <input id='letra' type="date" name="fecha"><br> <br>
+                    <input id='letra' type="date" name="fecha" ng-model="fecha">><br> <br>
                   </div>
                 </div>
 
@@ -29,16 +30,16 @@
                     No. de Facturas:
                   </div>
                   <div class="col-xs-12 col-md-4">
-                    <input id='letra' type="text" name="num_fact" value="" />
+                    <input id='letra' type="text" name="num_fact" value="" ng-model="accion" />
                   </div>
                   <div class="col-xs-12 col-md-2">
                     Monto:
                   </div>
                   <div class="col-xs-12 col-md-4">
-                    <input id='letra' type="text" name="cant" value="" /><br> <br>
+                    <input id='letra' type="number" name="cant" value="" ng-model="cant" /><br> <br>
                   </div>
                 </div>
-                  <br><br><button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align" >Guardar Abono</button> <br><br>
+                  <br><br><button id='aceptar' type="button" class="btn btn-success" aria-label="Left Align"ng-click="guardar()" >Guardar Abono</button> <br><br>
             </form>
 
         </div>
