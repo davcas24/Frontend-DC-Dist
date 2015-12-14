@@ -15,6 +15,7 @@ angular.module('AngularScaffold.Controllers')
   	});
 
   	$scope.inventarioArreglo = [];
+  	$scope.inventarioArregloCantidad = [];
   	$scope.zona_Venta = facturacionService.getZona();
   	$scope.id_Vendedor = facturacionService.getVendedor();
   	$scope.id_Cliente = facturacionService.getCliente();
@@ -48,6 +49,7 @@ angular.module('AngularScaffold.Controllers')
 	$scope.actualizarFactura =  function(){
 		var sum = 0;
 		var pos = 0;
+		$scope.inventarioArregloCantidad = [];
 	    $("table.tablaDario").find('input[type="number"][name^="cant"]').each(function () {
 			var producto;
 			console.log('hola ' + $(this).val());
@@ -55,7 +57,13 @@ angular.module('AngularScaffold.Controllers')
 				if(pos == i)
 		        	var producto = $scope.inventarioArreglo[i];
 		    }
-			sum += (producto.Precio * $(this).val());
+		    if( $(this).val() != ''){
+			    $scope.inventarioArregloCantidad.push( $(this).val() );
+				sum += (producto.Precio * $(this).val());
+			} else{
+				$scope.inventarioArregloCantidad.push( 1 );
+				sum += (producto.Precio * 1);
+			}
 			pos++;
 	    });
 	    var imp = sum * 0.15;
@@ -68,9 +76,11 @@ angular.module('AngularScaffold.Controllers')
 
 	$scope.actualizarFacturaPrincipio =  function(){
 		var sum = 0;
+		$scope.inventarioArregloCantidad = [];
 	    for(var i = 0; i < $scope.inventarioArreglo.length; i++){
 	        var producto = $scope.inventarioArreglo[i];
 	        sum += (producto.Precio * 1);
+	        $scope.inventarioArregloCantidad.push( 1 );
 	    }
 	    var imp = sum * 0.15;
 	    var tot = sum + imp;
@@ -142,6 +152,29 @@ angular.module('AngularScaffold.Controllers')
 			console.log('Vendedor = ' + $scope.factura_ID_Vendedor);
 			console.log('Total = ' + $scope.factura_total);
 			console.log('Tabla = ' + $scope.factura_tabla);
+			for (var i = 0; i < $scope.inventarioArreglo.length; i++) {
+				var cantidad;
+				$scope.inventarioArreglo[i];
+				console.log('arr antes ' + $scope.inventarioArreglo[i].Descripcion + ' ' + $scope.inventarioArreglo[i].Cantidad);
+				console.log('can antes ' + $scope.inventarioArregloCantidad[i]);
+				cantidad = $scope.inventarioArreglo[i].Cantidad - $scope.inventarioArregloCantidad[i];
+				$scope.inventarioArreglo[i].Cantidad = cantidad;
+				console.log('can' + cantidad);
+				console.log('arr' + $scope.inventarioArreglo[i].Cantidad);
+				if(cantidad == 0){
+					comprasService.DeleteInventario($scope.inventarioArreglo[i].ID).then(function(response){
+						alert('Se borro');
+					}).catch(function(err){
+						alert('Error Borrando');
+					});
+				} else{
+					comprasService.PutInventario($scope.inventarioArreglo[i]).then(function(response){
+				      alert('Se modifico');
+				    }).catch(function(err){
+				      alert("Pija de Error");
+				    });
+				}
+			};
 			comprasService.PostFactura($scope.factura).then(function(response){
 				alert("Facturado exitosamente!");
 				$state.go('facturacion');

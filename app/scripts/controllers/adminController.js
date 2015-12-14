@@ -46,5 +46,43 @@ angular.module('AngularScaffold.Controllers')
       }
     }
 
+    var animationName = 'animated pulse';
+    var animatioEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    $('#user_btFac').mouseenter('click', function(){
+      $('#user_btFac').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+
+    $('#user_btDev').mouseenter('click', function(){
+      $('#user_btDev').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+
+    $('#user_btUsu').mouseenter('click', function(){
+      $('#user_btUsu').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+
+    $('#Abonos').mouseenter('click', function(){
+      $('#Abonos').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+
+    $('#Compras').mouseenter('click', function(){
+      $('#Compras').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+    
+    $('#Dei').mouseenter('click', function(){
+      $('#Dei').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+
     indexService.setTitle("Bienvenido!");
   }]);
