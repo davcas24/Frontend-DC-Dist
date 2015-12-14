@@ -30,7 +30,7 @@ angular.module('AngularScaffold.Controllers')
             }
 
           }).catch(function(err){
-            alert(err.data.error + " " + err.data.message)
+            swal(err.data.error + " " + err.data.message,"error");
           });
         }
 

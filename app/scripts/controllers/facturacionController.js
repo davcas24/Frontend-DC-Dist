@@ -8,7 +8,7 @@ angular.module('AngularScaffold.Controllers')
   		windowHeight = $(window).innerHeight();
   		$('#body_facturacion').css('min-height', windowHeight);
   	};
-  	setHeight();  
+  	setHeight();
 
   	$(window).resize(function() {
   		setHeight();
@@ -22,9 +22,9 @@ angular.module('AngularScaffold.Controllers')
 
   	$scope.gocompras = function(){
   		if($scope.inventarioArregloSeleccionado.length == 0)
-  			alert('No selecciono ningun producto.');
+        swal("Error", "No ha seleccionado producto", "error");
   		else if ($scope.zona_Venta ==  '')
-  			alert('Seleccione una zona de venta.');
+        swal("Error", "Seleccione una zona de venta", "error");
   		else{
 	  		facturacionService.set($scope.inventarioArregloSeleccionado, $scope.zona_Venta, $scope.id_Vendedor, $scope.id_Cliente);
 	  		$state.go('compras');
@@ -41,7 +41,7 @@ angular.module('AngularScaffold.Controllers')
 		proveedorService.GetInventario().then(function(response){
 			$scope.inventarioArreglo = response.data;
 		}).catch(function(err){
-			alert("No se pudo leer el inventario");
+      swal("Error", "No se pudo leer el inventario", "error");
 		});
 	}
 
@@ -81,7 +81,7 @@ angular.module('AngularScaffold.Controllers')
 		$scope.search =  '';
 		$('#input_search_text').val("");
 	}
-	
+
 	$scope.sortType     = 'ID';
 	$scope.sortReverse  = false;  // set the default sort order
 	$scope.searchFish   = '';     // set the default search/filter term
@@ -91,11 +91,11 @@ angular.module('AngularScaffold.Controllers')
   	$scope.currentPage = 1;
   	$scope.numPerPage = 2;
   	$scope.maxSize = 5;
-  
+
 	$scope.$watch('currentPage + numPerPage', function() {
 		var begin = (($scope.currentPage - 1) * $scope.numPerPage)
 		, end = begin + $scope.numPerPage;
 		$scope.filteredProductos = $scope.inventarioArreglo.slice(begin, end);
 	});
-    
+
   }]);

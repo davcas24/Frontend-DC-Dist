@@ -8,7 +8,7 @@ angular.module('AngularScaffold.Controllers')
       windowHeight = $(window).innerHeight();
       $('#body_proveedor').css('min-height', windowHeight);
     };
-    setHeight();  
+    setHeight();
 
     $(window).resize(function() {
       setHeight();
@@ -32,21 +32,21 @@ angular.module('AngularScaffold.Controllers')
         else
           $scope.inventario_ID = parseInt($scope.inventarioArreglo[$scope.inventarioArreglo.length - 1].ID) + 1;
 			}).catch(function(err){
-				alert("No se pudo leer el inventario");
+        swal("Error", "No se pudo leer el inventario", "error");
 			});
 		}
 
 		$scope.addInventario =  function(){
       $scope.inventario.inventario_ID = $scope.inventario_ID;
 			proveedorService.PostInventario($scope.inventario).then(function(response){
-				alert("Agregado exitosamente!");
+        swal("¡Exito!", "Agregado Exitosamente", "success");
         $scope.getInventario();
 			}).catch(function(err){
-				alert("No se puede agregar el producto");
+        swal("Error", "No se pudo agregar el producto", "error");
 			});
 		}
 
     $('.dropdown-inverse li > a').click(function(e){
       $('#Boton').text(this.innerHTML);
-    });  		
+    });
   }]);

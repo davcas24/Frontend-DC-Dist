@@ -49,10 +49,10 @@ angular.module('AngularScaffold.Controllers')
       $scope.Postusuario = function(){
         console.log($scope.user + " soy frontend controller");
         usuarioService.Postusuario($scope.user).then(function(response){
-          alert("Posted to /usuario");
+          swal("¡Exito!","success");
           $scope.getusuario();
         }).catch(function(err){
-          alert("Error posting to usuario");
+          swal("Error", "Error ingresado el usuario", "error");
         });
       }
 
@@ -63,7 +63,7 @@ angular.module('AngularScaffold.Controllers')
         windowHeight = $(window).innerHeight();
         $('#body_facturacion').css('min-height', windowHeight);
       };
-      setHeight();  
+      setHeight();
 
       $(window).resize(function() {
         setHeight();
