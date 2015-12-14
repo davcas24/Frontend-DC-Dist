@@ -89,15 +89,15 @@
                     Cantidad
                   </th>
                 </tr>
-                <tr >
+                <tr ng-repeat="fecha in fechas" ng-repeat="accion in accions track by $index" ng-repeat="monto in montos track by $index" >
                   <td>
-
+                    {{fecha}}
                   </td>
                   <td>
-
+                    {{accions[$index]}}
                   </td>
                   <td>
-
+                    {{montos[$index]}}
                   </td>
                 </tr>
               </table>

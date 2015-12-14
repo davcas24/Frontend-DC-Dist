@@ -57,7 +57,7 @@ angular.module('AngularScaffold.Controllers')
         $(this).removeClass(animationName);
       })
     })
-    
+
     $('#Dei').mouseenter('click', function(){
       $('#Dei').addClass(animationName).one(animatioEnd, function(){
         $(this).removeClass(animationName);

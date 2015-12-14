@@ -6,6 +6,16 @@ angular.module('AngularScaffold.Controllers')
     $scope.user_show={};
     $scope.user_tabla = [];
     $scope.users=[];
+    $scope.boolfecha = true;
+    $scope.boolaccion = false;
+    $scope.boolmonto = false;
+    $scope.fechas=[];
+    $scope.accions=[];
+    $scope.montos=[];
+    $scope.fecha=Date;
+    $scope.accion=String;
+    $scope.monto=Number;
+    $scope.debe=Number;
 
     $scope.getusuario = function(){
       usuarioService.Getusuario().then(function(response){
@@ -22,13 +32,17 @@ angular.module('AngularScaffold.Controllers')
         console.log("balalala de change"+ $scope.user2);
         if ($scope.user2=="Seleccione usuario") {
           console.log("balalala entro perras putas zorras magayas"+ $scope.user2);
-          /*$scope.user.nombre=default;
-          $scope.user.password=default;
-          $scope.user.direccion=default;
-          $scope.user.correo=default;
-          $scope.user.celular=default;
-          $scope.user.tel_fijo=default;
-          //$scope.user.zona=;*/
+          $scope.user.nombre="";
+          $scope.user.password="";
+          $scope.user.direccion="";
+          $scope.user.correo="";
+          $scope.user.celular="";
+          $scope.user.tel_fijo="";
+          $scope.user.zona= "";
+          $scope.fechas=[];
+          $scope.accions=[];
+          $scope.montos=[];
+
         }
         for (var i = 0; i < $scope.users.length; i++) {
 
@@ -41,6 +55,33 @@ angular.module('AngularScaffold.Controllers')
             $scope.user.celular=$scope.users[i].celular;
             $scope.user.tel_fijo=$scope.users[i].tel_fijo;
             $scope.user.zona=$scope.users[i].zona;
+            $scope.user_tabla=$scope.users[i].tabla;
+
+            $scope.fechas=[];
+            $scope.accions=[];
+            $scope.montos=[];
+            $scope.boolfecha = true;
+            $scope.boolaccion = false;
+            $scope.boolmonto = false;
+            $scope.debe=0;
+            for (var i = 0; i < $scope.user_tabla.length; i++) {
+              if ($scope.boolfecha==true) {
+                $scope.boolfecha = false;
+                $scope.boolaccion = true;
+                $scope.fechas.push( $scope.user_tabla[i]);
+
+              }else if ($scope.boolaccion==true) {
+                $scope.boolaccion = false;
+                $scope.boolmonto = true;
+                $scope.accions.push( $scope.user_tabla[i]);
+              } else if($scope.boolmonto==true) {
+                $scope.boolfecha = true;
+                $scope.boolmonto = false;
+                $scope.montos.push($scope.user_tabla[i]);
+                $scope.debe=$scope.debe+$scope.user_tabla[i];
+              }
+
+            }
 
           }
         }
@@ -63,7 +104,7 @@ angular.module('AngularScaffold.Controllers')
         windowHeight = $(window).innerHeight();
         $('#body_facturacion').css('min-height', windowHeight);
       };
-      setHeight();  
+      setHeight();
 
       $(window).resize(function() {
         setHeight();
