@@ -7,7 +7,7 @@ angular.module('AngularScaffold.Controllers')
     }
 
     $scope.goabono = function(){
-        alert('No tiene los permisos necesarios');
+        $state.go('abono');
     }
 
     $scope.gotocharts = function(){
