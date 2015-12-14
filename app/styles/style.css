@@ -87,15 +87,15 @@ html, body, .container-table {
 
 
 #abono{
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-  background-color: #ffffff;
+  //opacity: 0.9;
+  //filter: alpha(opacity=90);
+  //background-color: #ffffff;
   font-size: 20px;
   text-align: center;
   margin: 150px;
   font-weight: bolder;
-  background-color: black;
-  color: white;
+  background-color: rgba(255,255,255,0.6);
+  color: black;
 }
 #letra{
   color:black;
@@ -104,6 +104,7 @@ html, body, .container-table {
 #create_user{
   margin: 150px;
   color:white;
+  text-align: center;
 }
 
 //DAVID
@@ -472,4 +473,18 @@ position: fixed;
 
 .TableCenterHeader{
   cursor: pointer;
+}
+
+#div_table{
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  //background-color: #ffffff;
+  //background-color: #4EB1BA;
+  background-color: black;
+  color:white;
+
+}
+
+#deuda{
+  color:black;
 }

@@ -15,7 +15,8 @@ angular.module('AngularScaffold.Controllers')
     $scope.fecha=Date;
     $scope.accion=String;
     $scope.monto=Number;
-    $scope.debe=Number;
+  
+
 
     $scope.getusuario = function(){
       usuarioService.Getusuario().then(function(response){
@@ -30,7 +31,7 @@ angular.module('AngularScaffold.Controllers')
 
     $scope.change = function() {
         console.log("balalala de change"+ $scope.user2);
-        if ($scope.user2=="Seleccione usuario") {
+        if ($scope.user2 == "") {
           console.log("balalala entro perras putas zorras magayas"+ $scope.user2);
           $scope.user.nombre="";
           $scope.user.password="";
@@ -42,6 +43,7 @@ angular.module('AngularScaffold.Controllers')
           $scope.fechas=[];
           $scope.accions=[];
           $scope.montos=[];
+          $scope.debe="";
 
         }
         for (var i = 0; i < $scope.users.length; i++) {
@@ -64,21 +66,21 @@ angular.module('AngularScaffold.Controllers')
             $scope.boolaccion = false;
             $scope.boolmonto = false;
             $scope.debe=0;
-            for (var i = 0; i < $scope.user_tabla.length; i++) {
+            for (var j = 0; j < $scope.user_tabla.length; j++) {
               if ($scope.boolfecha==true) {
                 $scope.boolfecha = false;
                 $scope.boolaccion = true;
-                $scope.fechas.push( $scope.user_tabla[i]);
+                $scope.fechas.push( $scope.user_tabla[j]);
 
               }else if ($scope.boolaccion==true) {
                 $scope.boolaccion = false;
                 $scope.boolmonto = true;
-                $scope.accions.push( $scope.user_tabla[i]);
+                $scope.accions.push( $scope.user_tabla[j]);
               } else if($scope.boolmonto==true) {
                 $scope.boolfecha = true;
                 $scope.boolmonto = false;
-                $scope.montos.push($scope.user_tabla[i]);
-                $scope.debe=$scope.debe+$scope.user_tabla[i];
+                $scope.montos.push($scope.user_tabla[j]);
+                $scope.debe=$scope.debe+$scope.user_tabla[j];
               }
 
             }
