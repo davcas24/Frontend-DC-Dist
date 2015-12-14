@@ -59,6 +59,11 @@ angular.module('AngularScaffold.Controllers')
 	    $("table.tablaDario").find('input[type="checkbox"][name^="check1"]:checked').each(function () {
 	        var row = $(this).closest('tr').index();
 	        sum += parseFloat($(this).parent().siblings('td:nth-last-child(1)').text());
+	        for (var i = 1 ; i <= $scope.inventarioArreglo.length; i++) {
+	        	if ($scope.inventarioArreglo[i - 1].ID == parseInt($(this).parent().siblings('td:nth-last-child(4)').text()) ){
+	        		row = i - 1;
+	        	}
+	        }
 	        $scope.inventarioArregloSeleccionado.push($scope.inventarioArreglo[row]);
 	        can++;
 	    });
