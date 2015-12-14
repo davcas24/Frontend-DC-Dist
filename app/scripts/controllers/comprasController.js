@@ -135,8 +135,8 @@ angular.module('AngularScaffold.Controllers')
 		        	var producto = $scope.inventarioArreglo[i];
 		    }
 	        if($(this).val() > producto.Cantidad){
-				alert("El producto " + producto.Descripcion + " pasa de la cantidad disponible en el inventario. (Cantidad disponible: "
-					+ producto.Cantidad + ")");
+				swal("El producto " + producto.Descripcion + " pasa de la cantidad disponible en el inventario. (Cantidad disponible: "
+					+ producto.Cantidad + ")","error");
 				pasoCantidad = true;
 			}
 			pos++;
@@ -163,23 +163,23 @@ angular.module('AngularScaffold.Controllers')
 				console.log('arr' + $scope.inventarioArreglo[i].Cantidad);
 				if(cantidad == 0){
 					comprasService.DeleteInventario($scope.inventarioArreglo[i].ID).then(function(response){
-						alert('Se borro');
+					  swal("¡Exito!", "Se borro el elemento", "success");
 					}).catch(function(err){
-						alert('Error Borrando');
+						swal("Error", "No se pudo borrar", "error");
 					});
 				} else{
 					comprasService.PutInventario($scope.inventarioArreglo[i]).then(function(response){
-				      alert('Se modifico');
+				      swal("Modificado!", "success");
 				    }).catch(function(err){
-				      alert("Pija de Error");
+				      swal("Error", "error");
 				    });
 				}
 			};
 			comprasService.PostFactura($scope.factura).then(function(response){
-				alert("Facturado exitosamente!");
+				swal("Exito en la Factura!", "Factura Exitosa", "success");
 				$state.go('facturacion');
 			}).catch(function(err){
-				alert("No se puede agregar la factura");
+				swal("Error","No se pudo facturar", "error");
 			});
 		}
 	}
@@ -220,7 +220,7 @@ angular.module('AngularScaffold.Controllers')
 	        else
 	          $scope.factura_ID = parseInt($scope.facturasArreglo[$scope.facturasArreglo.length - 1].ID) + 1;
 		}).catch(function(err){
-			alert("No se pudo leer el inventario");
+			swal("Error", "No se pudo leer el inventario", "error")
 		});
   }
   }]);

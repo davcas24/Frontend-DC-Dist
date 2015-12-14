@@ -11,7 +11,7 @@ angular.module('AngularScaffold.Controllers')
 	$scope.loadFactura =  function(){
 		chartsService.GetFactura($scope.facturasArreglo).then(function(response){
 			$scope.facturasArreglo = response.data;
-      
+
       /*for (var i = 0; i < $scope.facturasArreglo.length; i++) {
         console.log($scope.facturasArreglo[i]);
       }*/
@@ -51,7 +51,7 @@ angular.module('AngularScaffold.Controllers')
         });
       });
     }).catch(function(err){
-			alert("Error, no hay facturas disponibles");
+			swal("Error", "No hay facturas disponibles", "error");
 		});
 
 	}
@@ -67,6 +67,13 @@ angular.module('AngularScaffold.Controllers')
     console.log(stringzona);
   });
 
+$scope.validacion = function(date1,date2){
+  if(date2.getMonth() - date1.getMonth() == 0){
+    return true;
+  }
+  return false;
+}
+
   $scope.visualizar = function(){
     for (var i = 0; i < $scope.facturasArreglo.length; i++) {
       console.log($scope.facturasArreglo[i]);
@@ -75,8 +82,9 @@ angular.module('AngularScaffold.Controllers')
     var datefin = document.getElementById("datedav");
     var dateinitVal = new Date(dateinit.value);
     var datefinVal = new Date(datefin.value);
-    if(dateinitVal > datefinVal || dateinit.value === datefin.value || datefin.value == "" || dateinit.value == ""){
-      alert("Error, fechas mal ingresadas");
+    var val = $scope.validacion(dateinitVal,datefinVal);
+    if(dateinitVal > datefinVal || dateinit.value === datefin.value || datefin.value == "" || dateinit.value == "" || !val){
+      swal("Error", "Fechas mal ingresadas", "error");
     }else{
       //alert("exito");
       var myseries = [];

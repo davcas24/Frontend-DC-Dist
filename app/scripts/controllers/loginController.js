@@ -27,7 +27,7 @@ angular.module('AngularScaffold.Controllers')
             }
           }
         }).catch(function(err){
-          alert("Error, ingrese los datos correctos");
+          swal("Error", "Ingrese los datos correctos", "error");
           console.log((err.data.error + " " + err.data.message));
         });
       }
