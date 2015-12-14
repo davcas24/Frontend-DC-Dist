@@ -20,7 +20,11 @@ angular.module('AngularScaffold.Controllers')
             $scope.boollog = true;
           }
           if($scope.boollog == false){
-              $state.go('admin');
+            if($sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('Administrador') > -1){
+                $state.go('admin');
+            }else{
+              $state.go('facturacion');
+            }
           }
         }).catch(function(err){
           alert("Error, ingrese los datos correctos");
