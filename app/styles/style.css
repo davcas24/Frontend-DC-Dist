@@ -6,11 +6,11 @@
 }
 
 #login{
-  opacity: 0.6;
-  filter: alpha(opacity=60);
+  opacity: 0.8;
+  filter: alpha(opacity=80);
   border: solid 13px;
   margin-top: 180px;
-  height: 250px;
+  height: 320px;
   background-color: #ffffff;
   text-align: center;
 }
@@ -471,4 +471,15 @@ position: fixed;
 
 .TableCenterHeader{
   cursor: pointer;
+}
+
+#brand{
+  height: 100%;
+  width: auto;
+}
+
+#brandLog{
+  margin-left: 20px;
+  width: 50%;
+  height: auto;
 }
