@@ -3,7 +3,7 @@ angular.module('AngularScaffold.Services').factory('facturacionService',  ['$htt
 		$http.defaults.withCredentials = true;
 		var baseUrl = 'https://dist-dc.herokuapp.com/';
 		//var baseUrl = 'http://localhost:8000/';
-
+		
 		var inventarioArreglo = [];
 		var zona_Venta = '';
 		var id_Vendedor = '';

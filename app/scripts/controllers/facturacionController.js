@@ -1,5 +1,5 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('facturacionController', ['$state','$scope', 'facturacionService', 'indexService', 'proveedorService', function ($state,$scope, facturacionService, indexService, proveedorService) {
+  .controller('facturacionController', ['$state','$scope', '$sessionStorage', 'facturacionService', 'indexService', 'proveedorService', function ($state,$scope,$sessionStorage, facturacionService, indexService, proveedorService) {
   	indexService.setTitle("Facturacion");
 
   	$scope.viewBackground = "background-facturacion";
@@ -17,7 +17,7 @@ angular.module('AngularScaffold.Controllers')
   	$scope.inventarioArreglo = [];
   	$scope.inventarioArregloSeleccionado = [];
   	$scope.zona_Venta =  '';
-  	$scope.id_Vendedor = 66666;
+  	$scope.id_Vendedor = $sessionStorage.currentUser.nombre;
   	$scope.id_Cliente = 777;
 
   	$scope.gocompras = function(){

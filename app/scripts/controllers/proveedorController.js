@@ -40,10 +40,10 @@ angular.module('AngularScaffold.Controllers')
       $scope.inventario.inventario_ID = $scope.inventario_ID;
 			proveedorService.PostInventario($scope.inventario).then(function(response){
 				alert("Agregado exitosamente!");
+        $scope.getInventario();
 			}).catch(function(err){
 				alert("No se puede agregar el producto");
 			});
-      $scope.getInventario();
 		}
 
     $('.dropdown-inverse li > a').click(function(e){
