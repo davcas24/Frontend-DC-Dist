@@ -155,12 +155,8 @@ angular.module('AngularScaffold.Controllers')
 			for (var i = 0; i < $scope.inventarioArreglo.length; i++) {
 				var cantidad;
 				$scope.inventarioArreglo[i];
-				console.log('arr antes ' + $scope.inventarioArreglo[i].Descripcion + ' ' + $scope.inventarioArreglo[i].Cantidad);
-				console.log('can antes ' + $scope.inventarioArregloCantidad[i]);
 				cantidad = $scope.inventarioArreglo[i].Cantidad - $scope.inventarioArregloCantidad[i];
 				$scope.inventarioArreglo[i].Cantidad = cantidad;
-				console.log('can' + cantidad);
-				console.log('arr' + $scope.inventarioArreglo[i].Cantidad);
 				if(cantidad == 0){
 					comprasService.DeleteInventario($scope.inventarioArreglo[i].ID).then(function(response){
 					  swal("¡Exito!", "Se borro el elemento", "success");
