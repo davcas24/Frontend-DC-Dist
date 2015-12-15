@@ -93,6 +93,17 @@ angular.module('AngularScaffold.Controllers')
       $scope.Postusuario = function(){
         console.log($scope.user + " soy frontend controller");
         usuarioService.Postusuario($scope.user).then(function(response){
+          $scope.user.nombre="";
+          $scope.user.password="";
+          $scope.user.direccion="";
+          $scope.user.correo="";
+          $scope.user.celular="";
+          $scope.user.tel_fijo="";
+          $scope.user.zona= "";
+          $scope.fechas=[];
+          $scope.accions=[];
+          $scope.montos=[];
+          $scope.debe="";
           swal("¡Exito!","success");
           $scope.getusuario();
         }).catch(function(err){
