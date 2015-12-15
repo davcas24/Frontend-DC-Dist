@@ -87,15 +87,12 @@ html, body, .container-table {
 
 
 #abono{
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-  background-color: #ffffff;
   font-size: 20px;
-  text-align: center;
-  margin: 150px;
-  font-weight: bolder;
-  background-color: black;
-  color: white;
+    text-align: center;
+    margin: 150px;
+    font-weight: bolder;
+    background-color: rgba(255,255,255,0.6);
+    color: black;
 }
 #letra{
   color:black;
@@ -103,6 +100,7 @@ html, body, .container-table {
 
 #create_user{
   margin: 150px;
+  color:white;
 }
 
 //DAVID
@@ -409,6 +407,7 @@ position: fixed;
 
 .letraCanTot{
   color: white;
+  font-size: 120%;
 }
 
 @media screen and (max-width: 768px){
@@ -482,4 +481,20 @@ position: fixed;
   margin-left: 20px;
   width: 50%;
   height: auto;
+}
+
+#div_table{
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  //background-color: #ffffff;
+  //background-color: #4EB1BA;
+  background-color: black;
+  color:white;
+
+}
+#deuda{
+  color:black;
+}
+.contra{
+  text-align: center;
 }
