@@ -58,7 +58,7 @@ angular.module('AngularScaffold.Controllers')
                 $scope.user_change=$scope.users[i];
               }
             }
-
+            
             $scope.fecha="";
             $scope.accion="";
             $scope.cant="";
