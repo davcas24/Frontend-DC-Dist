@@ -357,6 +357,10 @@ position: fixed;
   text-align: right;
 }
 
+.table-left{
+  text-align: left;
+}
+
 .tablaDario{
     border: 1px solid white;
     background: rgba(255,255,255,0.6);
@@ -497,4 +501,10 @@ position: fixed;
 }
 .contra{
   text-align: center;
+}
+
+.divider{
+  width:20px;
+  height:auto;
+  display:inline-block;
 }

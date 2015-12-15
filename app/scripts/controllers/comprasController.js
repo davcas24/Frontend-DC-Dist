@@ -1,5 +1,5 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('comprasController', ['$state','$scope', 'comprasService', 'indexService', 'facturacionService', function ($state,$scope, comprasService, indexService, facturacionService) {
+  .controller('comprasController', ['$state','$scope', 'comprasService', 'indexService', 'facturacionService', 'usuarioService', function ($state,$scope, comprasService, indexService, facturacionService, usuarioService) {
   	indexService.setTitle("Compras");
 
   	$scope.viewBackground = "background-compras";
@@ -104,7 +104,7 @@ angular.module('AngularScaffold.Controllers')
 	$scope.title = "Lista de Facturas"
     $scope.factura={};
     $scope.factura_ID={};
-    $scope.factura_nombre_Cliente = {};
+    $scope.factura_nombre_Cliente = '';
     $scope.factura_Dia = {};
     $scope.factura_Mes = {};
     $scope.factura_Anio = {};
@@ -143,40 +143,45 @@ angular.module('AngularScaffold.Controllers')
 	    });
 
 		if (pasoCantidad == false){
-			$scope.readyData();
-			console.log('Cliente = ' + $scope.factura_nombre_Cliente);
-			console.log('Dia = ' + $scope.factura_Dia);
-			console.log('Mes = ' + $scope.factura_Mes);
-			console.log('Ano = ' + $scope.factura_Anio);
-			console.log('Zona = ' + $scope.factura_zona);
-			console.log('Vendedor = ' + $scope.factura_ID_Vendedor);
-			console.log('Total = ' + $scope.factura_total);
-			console.log('Tabla = ' + $scope.factura_tabla);
-			for (var i = 0; i < $scope.inventarioArreglo.length; i++) {
-				var cantidad;
-				$scope.inventarioArreglo[i];
-				cantidad = $scope.inventarioArreglo[i].Cantidad - $scope.inventarioArregloCantidad[i];
-				$scope.inventarioArreglo[i].Cantidad = cantidad;
-				if(cantidad == 0){
-					comprasService.DeleteInventario($scope.inventarioArreglo[i].ID).then(function(response){
-					  swal("¡Exito!", "Se borro el elemento", "success");
-					}).catch(function(err){
-						swal("Error", "No se pudo borrar", "error");
-					});
-				} else{
-					comprasService.PutInventario($scope.inventarioArreglo[i]).then(function(response){
-				      swal("Modificado!", "success");
-				    }).catch(function(err){
-				      swal("Error", "error");
-				    });
-				}
-			};
-			comprasService.PostFactura($scope.factura).then(function(response){
-				swal("Exito en la Factura!", "Factura Exitosa", "success");
-				$state.go('facturacion');
-			}).catch(function(err){
-				swal("Error","No se pudo facturar", "error");
-			});
+			if($scope.factura_nombre_Cliente != ''){
+				$scope.readyData();
+				if($('#cheque').is(':checked'))
+					$scope.agregarAccion();
+				console.log('Cliente = ' + $scope.factura_nombre_Cliente);
+				console.log('Dia = ' + $scope.factura_Dia);
+				console.log('Mes = ' + $scope.factura_Mes);
+				console.log('Ano = ' + $scope.factura_Anio);
+				console.log('Zona = ' + $scope.factura_zona);
+				console.log('Vendedor = ' + $scope.factura_ID_Vendedor);
+				console.log('Total = ' + $scope.factura_total);
+				console.log('Tabla = ' + $scope.factura_tabla);
+				for (var i = 0; i < $scope.inventarioArreglo.length; i++) {
+					var cantidad;
+					$scope.inventarioArreglo[i];
+					cantidad = $scope.inventarioArreglo[i].Cantidad - $scope.inventarioArregloCantidad[i];
+					$scope.inventarioArreglo[i].Cantidad = cantidad;
+					if(cantidad == 0){
+						comprasService.DeleteInventario($scope.inventarioArreglo[i].ID).then(function(response){
+						  swal("¡Exito!", "Se borro el elemento", "success");
+						}).catch(function(err){
+							swal("Error", "No se pudo borrar", "error");
+						});
+					} else{
+						comprasService.PutInventario($scope.inventarioArreglo[i]).then(function(response){
+					      swal("Modificado!", "success");
+					    }).catch(function(err){
+					      swal("Error", "error");
+					    });
+					}
+				};
+				comprasService.PostFactura($scope.factura).then(function(response){
+					swal("Exito en la Factura!", "Factura Exitosa", "success");
+					$state.go('facturacion');
+				}).catch(function(err){
+					swal("Error","No se pudo facturar", "error");
+				});
+			}else
+				swal("Error","Elija un cliente", "error");
 		}
 	}
 
@@ -186,11 +191,13 @@ angular.module('AngularScaffold.Controllers')
 		var mes = fecha.getMonth()+1;
 		var anio = fecha.getFullYear();
 
+		$scope.fecha = fecha;
+		$scope.cant = $scope.total;
+
 		$scope.factura_Dia = dia;
 		$scope.factura_Mes = mes;
 		$scope.factura_Anio = anio;
 
-		$scope.factura_nombre_Cliente = $scope.id_Cliente;
 		$scope.factura_ID_Vendedor = $scope.id_Vendedor;
 		$scope.factura_total = $scope.total;
 		$scope.factura_zona = $scope.zona_Venta;
@@ -211,12 +218,60 @@ angular.module('AngularScaffold.Controllers')
 	$scope.loadFactura =  function(){
 		comprasService.GetFactura($scope.facturasArreglo).then(function(response){
 			$scope.facturasArreglo = response.data;
-      if($scope.facturasArreglo.length == 0)
+			console.log($scope.facturasArreglo.length);
+			for (var i = $scope.facturasArreglo.length - 1; i >= 0; i--) {
+				console.log($scope.facturasArreglo[i].nombre_Cliente);
+				console.log($scope.facturasArreglo[i].ID);
+			};
+      		if($scope.facturasArreglo.length == 0)
 	          $scope.factura_ID = 1;
 	        else
 	          $scope.factura_ID = parseInt($scope.facturasArreglo[$scope.facturasArreglo.length - 1].ID) + 1;
 		}).catch(function(err){
 			swal("Error", "No se pudo leer el inventario", "error")
 		});
-  }
+    }
+
+    $scope.clientes=[];
+    $scope.usuarios=[];
+    $scope.fecha={};
+    $scope.cant={};
+    $scope.agregarAccion = function(){
+    	var index;
+    	console.log($scope.factura_nombre_Cliente);
+        for (var i = 0; i < $scope.clientes.length; i++) {
+        	console.log('i' + $scope.clientes[i].nombre);
+          if ( $scope.clientes[i].nombre == $scope.factura_nombre_Cliente ) {
+          	$scope.accion = "Factura #" + String($scope.factura_ID);
+          	console.log($scope.accion);
+            $scope.clientes[i].tabla.push($scope.fecha);
+            $scope.clientes[i].tabla.push($scope.accion);
+            $scope.clientes[i].tabla.push($scope.cant);
+            index =  i;
+          }
+        }
+        usuarioService.Putusuarios($scope.clientes[index]).then(function(response){
+          swal("¡Exito!","success");
+        }).catch(function(err){
+        //  alert(err.data.error + " " + err.data.message)
+        });
+    }
+
+    $scope.getText = function(nombre){
+		var selText = nombre;
+		$scope.factura_nombre_Cliente = selText;
+		$("#Cliente").html(selText+'<span class="caret"></span>');
+	}
+
+    $scope.loadClientes =  function(){
+    	usuarioService.Getusuario().then(function(response){
+    		$scope.usuarios = response.data;
+    		for (var i = 0; i < $scope.usuarios.length; i++) {
+    			if (String($scope.usuarios[i].scope) == 'Cliente' )
+    				$scope.clientes.push($scope.usuarios[i]);
+    		};
+        }).catch(function(err){
+        //  alert(err.data.error + " " + err.data.message)
+        });
+    }
   }]);
