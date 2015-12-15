@@ -48,7 +48,7 @@ angular.module('AngularScaffold.Controllers')
         //console.log('pos = ' + posID + '  arr = ' + $scope.inventarioArreglo[posID].ID);
         
 			}).catch(function(err){
-        swal("Error", "No se pudo leer el inventario", "error");
+        //swal("Error", "No se pudo leer el inventario", "error");
 			});
 		}
 
@@ -64,7 +64,7 @@ angular.module('AngularScaffold.Controllers')
             comprasService.PutInventario($scope.inventarioArreglo[i]).then(function(response){
               swal("Modificado!", "success");              
             }).catch(function(err){
-              swal("Error", "error");
+              //swal("Error", "error");
             });
             break;
           } else{
@@ -79,7 +79,7 @@ angular.module('AngularScaffold.Controllers')
           swal("¡Exito!", "Agregado Exitosamente", "success");
           $scope.getInventario();
   			}).catch(function(err){
-          swal("Error", "No se pudo agregar el producto", "error");
+          //swal("Error", "No se pudo agregar el producto", "error");
   			});
       }
 		}

@@ -161,7 +161,6 @@ angular.module('AngularScaffold.Controllers')
 						comprasService.PutInventario($scope.inventarioArreglo[i]).then(function(response){
 					      swal("Modificado!", "success");
 					    }).catch(function(err){
-					      swal("Error", "error");
 					    });
 					}
 				};
@@ -169,7 +168,6 @@ angular.module('AngularScaffold.Controllers')
 					swal("Exito en la Factura!", "Factura Exitosa", "success");
 					$state.go('facturacion');
 				}).catch(function(err){
-					swal("Error","No se pudo facturar", "error");
 				});
 			}else
 				swal("Error","Elija un cliente", "error");
@@ -214,7 +212,7 @@ angular.module('AngularScaffold.Controllers')
 	        else
 	          $scope.factura_ID = parseInt($scope.facturasArreglo[$scope.facturasArreglo.length - 1].ID) + 1;
 		}).catch(function(err){
-			swal("Error", "No se pudo leer el inventario", "error")
+			//swal("Error", "No se pudo leer el inventario", "error")
 		});
     }
 
