@@ -5,13 +5,15 @@
           <div class = "col-xs-10 fadeIn animated" id = "devocontainer">
             <form>
               <h1><span class = "white">Devoluciones</span></h1><br> <br>
-              <span class = "white">Nombre del Cliente:</span><select>
-                <option id = 'clientlist' value= "Clients" >Clientes</option>
-              </select><br> <br>
-              <span class = "white">No. Factura:</span><input id = 'text_bar_fac' type = "text" name = "num_fac"><br> <br>
-              <span class = "white">ID del Producto:</span><input id='text_bar_prod' type="text" name="id_prod" value="" /><br> <br>
-              <span class = "white">Cantidad:</span><input id='text_bar_cant' type="text" name="cant" value="" /><br> <br>
-              <br><br><button id = "devobutt" type="button" class="btn btn-success" aria-label="Left Align" >Aceptar</button> <br><br>
+              <span class = "white">Nombre del Cliente:</span>
+              <select id="letra"  ng-model="user2">
+              <option value=""></option>
+              <option value="{{user2.nombre}}" ng-repeat="user2 in users2" > {{user2.nombre}}</option>
+              </select>
+              <span class = "white">No. Factura:</span><input id = 'text_bar_fac' type = "text" name = "num_fac" ng-model = "accion"><br> <br>
+              <span class = "white">ID del Producto:</span><input id='text_bar_prod' type="text" name="id_prod" value="" ng-model = "ID_PROD" /><br> <br>
+              <span class = "white">Cantidad:</span><input id='text_bar_cant' type="number" name="cant" value="" ng-model = "cant" /><br> <br>
+              <br><br><button id = "devobutt" type="button" class="btn btn-success" aria-label="Left Align" ng-click = "guardar()" >Aceptar</button> <br><br>
             </form>
           </div>
         </div>
