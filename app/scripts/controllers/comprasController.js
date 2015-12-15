@@ -52,7 +52,6 @@ angular.module('AngularScaffold.Controllers')
 		$scope.inventarioArregloCantidad = [];
 	    $("table.tablaDario").find('input[type="number"][name^="cant"]').each(function () {
 			var producto;
-			console.log('hola ' + $(this).val());
 			for(var i = 0; i < $scope.inventarioArreglo.length; i++){
 				if(pos == i)
 		        	var producto = $scope.inventarioArreglo[i];
@@ -147,14 +146,6 @@ angular.module('AngularScaffold.Controllers')
 				$scope.readyData();
 				if($('#cheque').is(':checked'))
 					$scope.agregarAccion();
-				console.log('Cliente = ' + $scope.factura_nombre_Cliente);
-				console.log('Dia = ' + $scope.factura_Dia);
-				console.log('Mes = ' + $scope.factura_Mes);
-				console.log('Ano = ' + $scope.factura_Anio);
-				console.log('Zona = ' + $scope.factura_zona);
-				console.log('Vendedor = ' + $scope.factura_ID_Vendedor);
-				console.log('Total = ' + $scope.factura_total);
-				console.log('Tabla = ' + $scope.factura_tabla);
 				for (var i = 0; i < $scope.inventarioArreglo.length; i++) {
 					var cantidad;
 					$scope.inventarioArreglo[i];
@@ -218,11 +209,6 @@ angular.module('AngularScaffold.Controllers')
 	$scope.loadFactura =  function(){
 		comprasService.GetFactura($scope.facturasArreglo).then(function(response){
 			$scope.facturasArreglo = response.data;
-			console.log($scope.facturasArreglo.length);
-			for (var i = $scope.facturasArreglo.length - 1; i >= 0; i--) {
-				console.log($scope.facturasArreglo[i].nombre_Cliente);
-				console.log($scope.facturasArreglo[i].ID);
-			};
       		if($scope.facturasArreglo.length == 0)
 	          $scope.factura_ID = 1;
 	        else
@@ -238,12 +224,9 @@ angular.module('AngularScaffold.Controllers')
     $scope.cant={};
     $scope.agregarAccion = function(){
     	var index;
-    	console.log($scope.factura_nombre_Cliente);
         for (var i = 0; i < $scope.clientes.length; i++) {
-        	console.log('i' + $scope.clientes[i].nombre);
           if ( $scope.clientes[i].nombre == $scope.factura_nombre_Cliente ) {
           	$scope.accion = "Factura #" + String($scope.factura_ID);
-          	console.log($scope.accion);
             $scope.clientes[i].tabla.push($scope.fecha);
             $scope.clientes[i].tabla.push($scope.accion);
             $scope.clientes[i].tabla.push($scope.cant);

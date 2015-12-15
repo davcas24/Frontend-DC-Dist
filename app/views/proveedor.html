@@ -1,91 +1,96 @@
 <div ng-controller="proveedorController">
   <div id="body_proveedor" ng-class="viewBackground">
-    <div class="container container-table" ng-init="getInventario()">
+    <div class="container container-table" ng-init="getInventario();loadProveedores()">
       <div class="vertical-center-row">
         
-        <div class="row" id="divDARIOVCOMPRAS">
-          <div class="col-xs-6 col-md-4 text-center">
-            <p class= "letterCenter">Proveedores</p>
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Boton">
-                Proovedor 1<span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu dropdown-inverse">
-                <li><a href="#">Proovedor 2</a></li>
-                <li><a href="#">Proovedor 3</a></li>
-                <li><a href="#">Proovedor 4</a></li>
-                <li><a href="#">Proovedor 5</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <p class= "letterCenter">Descripcion</p>
-            <input type="text" class="form-control">
-          </div>
-
-          <div class="col-xs-6 col-md-2">
-            <p class= "letterCenter">Cantidad</p>
-            <input type="text" class="form-control" placeholder="0">
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <p class= "letterCenter">Fecha</p>
-            <input type="date" class="form-control">
-          </div>
-          
-          <div class="row">
-            <div class="row"></div>
-          </div>
-          <div class="row">
-            <div class="col-xs-offset-4 col-xs-8 col-sm-offset-5 col-sm-7">
+        <div class="row">
+          <!-- Inicio parte proveedor -->
+          <div id="divDARIOVCOMPRAS">
+            
+            <div class="col-xs-6 col-md-4 text-center">
+              <p class= "letterCenter">Proveedores</p>
               <div class="btn-group">
-                <button type="button" class="btn btn-success" ng-click="addAccion()">Agregar Accion</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Proveedor">
+                  Seleccione un Proveedor<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-inverse">
+                  <li ng-repeat="proveedor in proveedores" ng-click="getText(proveedor.nombre)"><a href="" >{{proveedor.nombre}}</a></li>
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="row" id="divDARIOVCOMPRAS">
+            <div class="col-xs-6 col-md-3">
+              <p class= "letterCenter">Descripcion</p>
+              <input id="descripcion" type="text" class="form-control" ng-model="$scope.accion">
+            </div>
 
-          <div class="col-xs-6 col-md-2">
-            <p class= "letterCenter">ID</p>
-            <p class= "letterCenter-ID">{{inventario_ID}}</p>
-          </div>
+            <div class="col-xs-6 col-md-2">
+              <p class= "letterCenter">Cantidad</p>
+              <input id="cant" type="text" class="form-control" placeholder="0" ng-model="$scope.cant">
+            </div>
 
-          <div class="col-xs-6 col-md-3">
-            <p class= "letterCenter">Numero Original</p>
-            <input type="text" class="form-control" ng-model="inventario.inventario_Num_Original">
-          </div>
-
-          <div class="col-xs-6 col-md-2">
-            <p class= "letterCenter">Cantidad</p>
-            <input type="text" class="form-control" ng-model="inventario.inventario_Cantidad">
-          </div>
-
-          <div class="col-xs-6 col-md-2">
-            <p class= "letterCenter">Precio Unitario</p>
-            <input type="text" class="form-control" ng-model="inventario.inventario_Precio">
-          </div>
-
-          <div class="col-xs-12 col-md-3">
-            <p class= "letterCenter">Descripcion</p>
-            <textarea class="form-control" rows="3" ng-model="inventario.inventario_Descripcion"></textarea>
-          </div>
-          
-          <div class="row">
-            <div class="row"></div>
-          </div>
-          <div class="row">
-            <div class="col-xs-offset-4 col-xs-8 col-sm-offset-5 col-sm-7">
-              <div class="btn-group">
-                <button type="button" class="btn btn-success" ng-click="addInventario()">Agregar Inventario</button>
+            <div class="col-xs-6 col-md-3">
+              <p class= "letterCenter">Fecha</p>
+              <input id="fecha" type="date" class="form-control" ng-model="$scope.fecha">
+            </div>
+            
+            <div class="row">
+              <div class="row"></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-offset-4 col-xs-8 col-sm-offset-5 col-sm-7">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-success" ng-click="agregarAccion()">Agregar Accion</button>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-      </div>
+          </div>
+          <!-- Fin parte proveedor -->
+
+          <!-- Inicio parte inventario -->
+          <div id="divDARIOVCOMPRAS">
+            
+            <div class="col-xs-6 col-md-2">
+              <p class= "letterCenter">ID</p>
+              <p class= "letterCenter-ID">{{inventario_ID}}</p>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+              <p class= "letterCenter">Numero Original</p>
+              <input type="text" class="form-control" ng-model="inventario.inventario_Num_Original">
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <p class= "letterCenter">Cantidad</p>
+              <input type="text" class="form-control" ng-model="inventario.inventario_Cantidad">
+            </div>
+
+            <div class="col-xs-6 col-md-2">
+              <p class= "letterCenter">Precio Unitario</p>
+              <input type="text" class="form-control" ng-model="inventario.inventario_Precio">
+            </div>
+
+            <div class="col-xs-12 col-md-3">
+              <p class= "letterCenter">Descripcion</p>
+              <textarea class="form-control" rows="3" ng-model="inventario.inventario_Descripcion"></textarea>
+            </div>
+            
+            <div class="row">
+              <div class="row"></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-offset-4 col-xs-8 col-sm-offset-5 col-sm-7">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-success" ng-click="addInventario()">Agregar Inventario</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- Fin parte inventario -->
+          
+        </div>
       </div>
     </div>
   </div>
