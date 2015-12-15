@@ -421,6 +421,14 @@ position: fixed;
     margin-top: 20%;
     width: 100%;
   }
+
+  #zonabutt{
+    width: 50px;
+  }
+
+  #Visbutt{
+    width: 50px;
+  }
 }
 
 @media screen and (max-width: 1000px){
@@ -428,6 +436,53 @@ position: fixed;
     background-color: rgba(0,0,0,0.50);
     padding: 1%;
     margin-top: 20%;
+    width: 100%;
+  }
+
+  #zonabutt{
+    width: 150px;
+  }
+
+  #Visbutt{
+    width: 200px;
+  }
+
+  #divchart{
+    margin-left: 7%;
+    margin-top: 1%;
+    margin-bottom: 30px;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  #divchart3{
+    margin-left: 7%;
+    margin-bottom: 30px;
+    width: 80%;
+    height: 400px;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  #chart1{
+    position: relative;
+    margin: 7%;
+    height: 100%;
+    width: 95%;
+  }
+
+  #chart2{
+    position: relative;
+    margin: 7%;
+    height: 100%;
+    width: 95%;
+  }
+
+  #chart3{
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: 300px;
     width: 100%;
   }
 
@@ -507,4 +562,13 @@ position: fixed;
   width:20px;
   height:auto;
   display:inline-block;
+}
+
+#BrandLogo{
+  font-family: 'Cabin', sans-serif;
+}
+
+.NavBar{
+  font-size: 18px;
+  font-family: 'Roboto Condensed', sans-serif;
 }

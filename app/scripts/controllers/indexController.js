@@ -62,6 +62,20 @@ angular.module('AngularScaffold.Controllers')
       }
     }
 
+    $scope.gotousuarios = function(){
+      if($sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('Administrador') > -1){
+          $state.go('usuario');
+      }else{
+        alert('No tiene los permisos necesarios');
+      }
+    }
+
+    $scope.gotoadmin = function(){
+      if($sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('Administrador') > -1){
+          $state.go('admin');
+      }
+    }
+
     $scope.indexService = indexService;
 
      $scope.checkPage = function(){
@@ -69,5 +83,43 @@ angular.module('AngularScaffold.Controllers')
      		$scope.boolLogOut = true;
 	   return $scope.boolLogOut;
 	 }
+
+   var animationName = 'animated pulse';
+    var animatioEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    $('#NF').mouseenter('click', function(){
+      $('#NF').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+    $('#ND').mouseenter('click', function(){
+      $('#ND').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+    $('#NU').mouseenter('click', function(){
+      $('#NU').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+    $('#NA').mouseenter('click', function(){
+      $('#NA').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+    $('#NC').mouseenter('click', function(){
+      $('#NC').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+    $('#NG').mouseenter('click', function(){
+      $('#NG').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
+    $('#NS').mouseenter('click', function(){
+      $('#NS').addClass(animationName).one(animatioEnd, function(){
+        $(this).removeClass(animationName);
+      })
+    })
 
   }]);
